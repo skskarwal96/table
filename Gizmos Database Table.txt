@@ -1,0 +1,338 @@
+CREATE TABLE customer(
+userid VARCHAR2(15) PRIMARY KEY,
+upass VARCHAR2(30) NOT NULL,
+fname VARCHAR2(20) NOT NULL,
+lname VARCHAR2(20) NOT NULL,
+addr VARCHAR2(30) NOT NULL,
+city VARCHAR2(30) NOT NULL,
+zipno NUMBER NOT NULL,
+state VARCHAR2(20) NOT NULL,
+mbl NUMBER UNIQUE,
+eml VARCHAR2(20) UNIQUE,
+dateins DATE NOT NULL);
+
+insert into customer values('u1', 'abcd', 'shruti', 'gupta',' house no-25', 'dehradun', 248007, 'uttrakhand', 9747983489, 'shruti@gmail.com', '12-May-2018');
+insert into customer values('u2', 'abcd', 'Rishabh', 'Malhotra',' house no-24', 'delhi', 110024, 'Delhi', 9745983489, 'rishabh@gmail.com', '13-May-2018');
+insert into customer values('u3', 'abcd', 'Sahil', 'Bajpayee',' house no-23', 'Ahemdabad', 335544, 'Gujarat', 8745933489, 'Sahil@gmail.com', '14-May-2018');
+insert into customer values('u4', 'abcd', 'Ria', 'Sharma',' house no-22', 'Mumbai', 400709, 'Maharashtra', 8723453489, 'ria@gmail.com', '15-May-2018');
+insert into customer values('u5', 'abcd', 'Sneha', 'Vig',' house no-21', 'Chennai', 445679, 'Tamil Nadu', 8445553489, 'sneha.vig@gmail.com', '16-May-2018');
+insert into customer values('u6', 'abcd', 'Rahul', 'Gupta',' house no-20', 'Kolkata', 334476, 'West Bengal', 8345673489, 'rahuls@gmail.com', '17-May-2018');
+insert into customer values('u7', 'abcd', 'Shantanu', 'Tyagi',' house no-18', 'Bhopal', 402998, 'Madhya Pradesh', 9983453489, 'shantanu@gmail.com', '18-May-2018');
+insert into customer values('u8', 'abcd', 'Kanishk', 'Sharma',' house no-12', 'Pune', 411982, 'Maharashtra', 9986673489, 'kanishksh@gmail.com', '19-May-2018');
+insert into customer values('u9', 'abcd', 'Akansha', 'Mittal',' house no-11', 'Bangalore', 423982, 'Karnataka', 9922234489, 'akansham@gmail.com', '20-May-2018');
+insert into customer values('u10', 'abcd', 'Abhishek', 'Singh',' house no-9', 'Indore', 452010, 'Madhya Pradesh', 8103354489, 'abhisheks@gmail.com', '21-May-2018');
+
+#############################################################################################
+
+CREATE TABLE category(
+catid VARCHAR2(10) PRIMARY KEY,
+catname VARCHAR2(20) NOT NULL);
+
+insert into category values('MB','Mobile');
+insert into category values('LP','Laptop');
+insert into category values('RG','Refrigerator');
+insert into category values('AC','Air Conditioner');
+insert into category values('TV','Television');
+insert into category values('CA','Camera');
+
+CREATE SEQUENCE UserIdSeq
+START WITH 1
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 9999999999999;
+
+#############################################################################################
+
+CREATE TABLE products(
+prodid VARCHAR2(10) PRIMARY KEY,
+prodname VARCHAR2(20) NOT NULL,
+prodprice VARCHAR2(20) NOT NULL,
+proddesc VARCHAR2(300) NOT NULL,
+qty NUMBER NOT NULL,
+brand VARCHAR2(30) NOT NULL,
+catid VARCHAR(10) REFERENCES category(catid));
+
+alter table products add (pic_name varchar2(10));
+
+INSERT INTO products VALUES('MB001','Redmi 5','7999','description goes here for mobile redmi5','30','Xiaomi','MB');
+INSERT INTO products VALUES('MB002','Galaxy S9','66650','description goes here for mobile samsung galaxy S9','30','Samsung','MB');
+INSERT INTO products VALUES('MB003','Note 8','59900','description goes here for mobile Samsung Galaxy Note8','30','Samsung','MB');
+
+INSERT INTO products VALUES('LP001','Laptop1','34990','description goes here for laptop001','30','HP','LP');
+INSERT INTO products VALUES('LP002','Laptop2','59999','description goes here for mobile laptop002','30','Lenovo','LP');
+INSERT INTO products VALUES('LP003','Laptop3','30490','description goes here for laptop003','30','Lenovo','LP');
+
+INSERT INTO products VALUES('RG001','Refrigerator1','59999','description goes here','30','Haier','RG');
+INSERT INTO products VALUES('RG002','Refrigerator2','59999','description goes here','30','Godrej','RG');
+INSERT INTO products VALUES('RG003','Refrigerator3','59999','description goes here','30','LG','RG');
+
+INSERT INTO products VALUES('AC001','AC1','59999','description goes here','30','O-General','AC');
+INSERT INTO products VALUES('AC002','AC2','59999','description goes here','30','Voltas','AC');
+INSERT INTO products VALUES('AC003','AC3','59999','description goes here','30','LG','AC');
+
+INSERT INTO products VALUES('TV001','TV1','59999','description goes here','30','Sony','TV');
+INSERT INTO products VALUES('TV002','TV2','59999','description goes here','30','LG','TV');
+INSERT INTO products VALUES('TV003','TV3','59999','description goes here','30','Samsung','TV');
+
+INSERT INTO products VALUES('CA001','camera1','47657','description goes here','30','Canon','CA');
+INSERT INTO products VALUES('CA002','camera2','76545','description goes here','30','Canon','CA');
+INSERT INTO products VALUES('CA003','camera3','12344','description goes here','30','Canon','CA');
+
+update products set pic_name='MB001.jpeg' where prodid='MB001';
+update products set pic_name='MB002.jpeg' where prodid='MB002';
+update products set pic_name='MB003.jpeg' where prodid='MB003';
+update products set pic_name='LP001.jpeg' where prodid='LP001';
+update products set pic_name='LP002.jpeg' where prodid='LP002';
+update products set pic_name='LP003.jpeg' where prodid='LP003';
+update products set pic_name='RG001.jpeg' where prodid='RG001';
+update products set pic_name='RG002.jpeg' where prodid='RG002';
+update products set pic_name='RG003.jpeg' where prodid='RG003';
+update products set pic_name='AC001.jpeg' where prodid='AC001';
+update products set pic_name='AC002.jpeg' where prodid='AC002';
+update products set pic_name='AC003.jpeg' where prodid='AC003';
+update products set pic_name='TV001.jpeg' where prodid='TV001';
+update products set pic_name='TV002.jpeg' where prodid='TV002';
+update products set pic_name='TV003.jpeg' where prodid='TV003';
+update products set pic_name='CA001.jpeg' where prodid='CA001';
+update products set pic_name='CA002.jpeg' where prodid='CA002';
+update products set pic_name='CA003.jpeg' where prodid='CA003';
+
+############################################################################################################################
+
+create table Specifications(catid varchar2(10) references category(catid), prodid varchar2(10) references products(prodid), specs varchar2(20) NOT NULL, value varchar2(20) NOT NULL, unit varchar2(10) NOT NULL);
+
+insert into Specifications values('MB', 'MB001', 'Dimensions', '5', 'inches');
+insert into Specifications values('MB', 'MB001', 'RAM', '2', 'GB');
+insert into Specifications values('MB', 'MB001', 'Processor', 'Qualcomm Snapdragon', 'GHz');
+insert into Specifications values('MB', 'MB001', 'Storage', '64', 'GB');
+insert into Specifications values('MB', 'MB001', 'Color', 'Golden', 'Color');
+insert into Specifications values('MB', 'MB001', 'Model', 'Redmi', 'Mi 5');
+
+insert into Specifications values('MB', 'MB002', 'Dimensions', '6', 'inches');
+insert into Specifications values('MB', 'MB002', 'RAM', '4', 'GB');
+insert into Specifications values('MB', 'MB002', 'Processor', 'Qualcomm Snapdragon', 'GHz');
+insert into Specifications values('MB', 'MB002', 'Storage', '64', 'GB');
+insert into Specifications values('MB', 'MB002', 'Color', 'Black', 'Color');
+insert into Specifications values('MB', 'MB002', 'Model', 'Galaxy', 'S9');
+
+insert into Specifications values('MB', 'MB003', 'Dimensions', '5', 'inches');
+insert into Specifications values('MB', 'MB003', 'RAM', '3', 'GB');
+insert into Specifications values('MB', 'MB003', 'Processor', 'Octa core', 'GHz');
+insert into Specifications values('MB', 'MB003', 'Storage', '256', 'GB');
+insert into Specifications values('MB', 'MB003', 'Color', 'Golden', 'Color');
+insert into Specifications values('MB', 'MB003', 'Model', 'Note', '8');
+_____________________________________________________________________
+
+insert into Specifications values('LP', 'LP001', 'Dimensions', '15.6', 'inches');
+insert into Specifications values('LP', 'LP001', 'RAM', '8', 'GB');
+insert into Specifications values('LP', 'LP001', 'Processor', 'Intel Core i5', 'GHz');
+insert into Specifications values('LP', 'LP001', 'Storage', '1', 'TB');
+insert into Specifications values('LP', 'LP001', 'Color', 'Black', 'Color');
+insert into Specifications values('LP', 'LP001', 'Model', 'HP 15-BS', 'HP');
+insert into Specifications values('LP', 'LP001', 'Graphic Card', '2', 'GB');
+insert into Specifications values('LP', 'LP001', 'Weight', '2.1', 'KG');
+
+insert into Specifications values('LP', 'LP002', 'Dimensions', '14', 'inches');
+insert into Specifications values('LP', 'LP002', 'RAM', '8', 'GB');
+insert into Specifications values('LP', 'LP002', 'Processor', 'Intel Core i7', 'GHz');
+insert into Specifications values('LP', 'LP002', 'Storage', '1', 'TB');
+insert into Specifications values('LP', 'LP002', 'Color', 'Grey', 'Color');
+insert into Specifications values('LP', 'LP002', 'Model', 'Lenovo 15-BS', 'Lenovo');
+insert into Specifications values('LP', 'LP002', 'Graphic Card', '3', 'GB');
+insert into Specifications values('LP', 'LP002', 'Weight', '2.5', 'KG');
+
+insert into Specifications values('LP', 'LP003', 'Dimensions', '12', 'inches');
+insert into Specifications values('LP', 'LP003', 'RAM', '8', 'GB');
+insert into Specifications values('LP', 'LP003', 'Processor', 'Intel Core i7', 'GHz');
+insert into Specifications values('LP', 'LP003', 'Storage', '1', 'TB');
+insert into Specifications values('LP', 'LP003', 'Color', 'Grey', 'Color');
+insert into Specifications values('LP', 'LP003', 'Model', 'Samsung 15-BS', 'Lenovo');
+insert into Specifications values('LP', 'LP003', 'Graphic Card', '4', 'GB');
+insert into Specifications values('LP', 'LP003', 'Weight', '2', 'KG');
+_____________________________________________________________________
+
+insert into Specifications values('RG', 'RG001', 'Dimensions', '20*20*60', 'inches');
+insert into Specifications values('RG', 'RG001', 'Volume', '195', 'Litre');
+insert into Specifications values('RG', 'RG001', 'Door', 'Single', 'Door');
+insert into Specifications values('RG', 'RG001', 'Color', 'Grey', 'Color');
+insert into Specifications values('RG', 'RG001', 'Model', 'HR-177BS', 'Haier');
+
+insert into Specifications values('RG', 'RG002', 'Dimensions', '20*20*80', 'inches');
+insert into Specifications values('RG', 'RG002', 'Volume', '250', 'Litre');
+insert into Specifications values('RG', 'RG002', 'Door', 'Double', 'Door');
+insert into Specifications values('RG', 'RG002', 'Color', 'Blue', 'Color');
+insert into Specifications values('RG', 'RG002', 'Model', 'GD-167BS', 'Godrej');
+
+insert into Specifications values('RG', 'RG003', 'Dimensions', '20*20*100', 'inches');
+insert into Specifications values('RG', 'RG003', 'Volume', '300', 'Litre');
+insert into Specifications values('RG', 'RG003', 'Door', 'Double', 'Door');
+insert into Specifications values('RG', 'RG003', 'Color', 'Silver', 'Color');
+insert into Specifications values('RG', 'RG003', 'Model', 'LG-137BS', 'LG');
+_____________________________________________________________________
+
+insert into Specifications values('AC', 'AC001', 'Energy Efficiency', '5', 'Star');
+insert into Specifications values('AC', 'AC001', 'Capacity', '1', 'Tons');
+insert into Specifications values('AC', 'AC001', 'Type', 'Split', 'Type');
+insert into Specifications values('AC', 'AC001', 'Color', 'White', 'Color');
+insert into Specifications values('AC', 'AC001', 'Model', 'OG-1567A', 'O-General');
+
+insert into Specifications values('AC', 'AC002', 'Energy Efficiency', '3', 'Star');
+insert into Specifications values('AC', 'AC002', 'Capacity', '1', 'Tons');
+insert into Specifications values('AC', 'AC002', 'Type', 'Window', 'Type');
+insert into Specifications values('AC', 'AC002', 'Color', 'White', 'Color');
+insert into Specifications values('AC', 'AC002', 'Model', 'VL-1567A', 'Voltas');
+
+insert into Specifications values('AC', 'AC003', 'Energy Efficiency', '4', 'Star');
+insert into Specifications values('AC', 'AC003', 'Capacity', '1.5', 'Tons');
+insert into Specifications values('AC', 'AC003', 'Type', 'Split', 'Type');
+insert into Specifications values('AC', 'AC003', 'Color', 'White', 'Color');
+insert into Specifications values('AC', 'AC003', 'Model', 'LG-1567A', 'LG');
+_____________________________________________________________________
+
+insert into Specifications values('TV', 'TV001', 'Dimensions', '40', 'inches');
+insert into Specifications values('TV', 'TV001', 'Display-Technology', 'LED', 'Type');
+insert into Specifications values('TV', 'TV001', 'Resolution', '1080p', 'Full HD');
+insert into Specifications values('TV', 'TV001', 'Color', 'Black', 'Color');
+insert into Specifications values('TV', 'TV001', 'Model', 'SN-1567A', 'SONY');
+
+insert into Specifications values('TV', 'TV002', 'Dimensions', '36', 'inches');
+insert into Specifications values('TV', 'TV002', 'Display-Technology', 'OLED', 'Type');
+insert into Specifications values('TV', 'TV002', 'Resolution', '1080p', 'Full HD');
+insert into Specifications values('TV', 'TV002', 'Color', 'Black', 'Color');
+insert into Specifications values('TV', 'TV002', 'Model', 'LG-1567A', 'LG');
+
+insert into Specifications values('TV', 'TV003', 'Dimensions', '32', 'inches');
+insert into Specifications values('TV', 'TV003', 'Display-Technology', 'LED', 'Type');
+insert into Specifications values('TV', 'TV003', 'Resolution', '720p', 'Full HD');
+insert into Specifications values('TV', 'TV003', 'Color', 'Black', 'Color');
+insert into Specifications values('TV', 'TV003', 'Model', 'SM-1567A', 'Samsung');
+_____________________________________________________________________
+
+insert into Specifications values('CA', 'CA001', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values('CA', 'CA001', 'Optical Zoom', '2', 'x');
+insert into Specifications values('CA', 'CA001', 'Shutter Speed', '30', 'secs');
+insert into Specifications values('CA', 'CA001', 'Display Size', '3.4', 'inches');
+insert into Specifications values('CA', 'CA001', 'Weight', '1', 'Kg');
+insert into Specifications values('CA', 'CA001', 'Model', 'EOS MarkIV', 'Canon');
+
+insert into Specifications values('CA', 'CA002', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values('CA', 'CA002', 'Optical Zoom', '3', 'x');
+insert into Specifications values('CA', 'CA002', 'Shutter Speed', '30', 'secs');
+insert into Specifications values('CA', 'CA002', 'Display Size', '3.6', 'inches');
+insert into Specifications values('CA', 'CA002', 'Weight', '1.2', 'Kg');
+insert into Specifications values('CA', 'CA002', 'Model', 'EOS MarkV', 'Canon');
+
+insert into Specifications values('CA', 'CA003', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values('CA', 'CA003', 'Optical Zoom', '1', 'x');
+insert into Specifications values('CA', 'CA003', 'Shutter Speed', '30', 'secs');
+insert into Specifications values('CA', 'CA003', 'Display Size', '3', 'inches');
+insert into Specifications values('CA', 'CA003', 'Weight', '1.7', 'Kg');
+insert into Specifications values('CA', 'CA003', 'Model', 'EOS MarkIII', 'Canon');
+
+
+****************************************************************************************************************************
+
+create table ordertable(OrderId varchar2(20) PRIMARY KEY, userid varchar2(20) references customer(userid), addr varchar2(40) NOT NULL, city varchar2(20) NOT NULL, zip NUMBER NOT NULL, state varchar2(20) NOT NULL, ModePay varchar2(20) NOT NULL, DatePur DATE NOT NULL, prodid varchar2(10) references products(prodid), DeliveryDate DATE NOT NULL, NoItem NUMBER NOT NULL, TotalAmt NUMBER NOT NULL); 
+
+CREATE SEQUENCE OrderIdSeq
+START WITH 1
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 9999999999999;
+
+****************************************************************************************************************************
+create table CardDetail(
+cardholdername varchar(30) not null,
+cardnumber varchar(20) not null primary key,
+cvv varchar(5) not null,
+expirymonth varchar(4) not null,
+expiryyear varchar(4) not null
+);
+
+insert into CardDetail values('sukanya','1234567890123458','890','12','22');
+insert into CardDetail values('prachi','1234567890112312','781','06','24');
+insert into CardDetail values('shubham','1234567890112334','782','08','21');
+insert into CardDetail values('astha','1234567890112390','783','09','22');
+insert into CardDetail values('disha','1234567890112378','784','10','26');
+
+
+****************************************************************************************************************************
+
+create table images(sno number primary key, prodid varchar2(10) references products(prodid), image_id varchar2(20) NOT NULL);
+
+Create sequence images_sequence start with 1
+increment by 1
+minvalue 1
+maxvalue 100;
+
+insert into images values(images_sequence.nextval, 'MB001','MB001_01.jpeg');
+insert into images values(images_sequence.nextval, 'MB001','MB001_02.jpeg');
+insert into images values(images_sequence.nextval, 'MB001','MB001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'MB002','MB002_01.jpeg');
+insert into images values(images_sequence.nextval, 'MB002','MB002_02.jpeg');
+insert into images values(images_sequence.nextval, 'MB002','MB002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'MB003','MB003_01.jpeg');
+insert into images values(images_sequence.nextval, 'MB003','MB003_02.jpeg');
+insert into images values(images_sequence.nextval, 'MB003','MB003_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'LP001','LP001_01.jpeg');
+insert into images values(images_sequence.nextval, 'LP001','LP001_02.jpeg');
+insert into images values(images_sequence.nextval, 'LP001','LP001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'LP002','LP002_01.jpeg');
+insert into images values(images_sequence.nextval, 'LP002','LP002_02.jpeg');
+insert into images values(images_sequence.nextval, 'LP002','LP002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'LP003','LP003_01.jpeg');
+insert into images values(images_sequence.nextval, 'LP003','LP003_02.jpeg');
+insert into images values(images_sequence.nextval, 'LP003','LP003_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'RG001','RG001_01.jpeg');
+insert into images values(images_sequence.nextval, 'RG001','RG001_02.jpeg');
+insert into images values(images_sequence.nextval, 'RG001','RG001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'RG002','RG002_01.jpeg');
+insert into images values(images_sequence.nextval, 'RG002','RG002_02.jpeg');
+insert into images values(images_sequence.nextval, 'RG002','RG002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'RG003','RG003_01.jpeg');
+insert into images values(images_sequence.nextval, 'RG003','RG003_02.jpeg');
+insert into images values(images_sequence.nextval, 'RG003','RG003_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'AC001','AC001_01.jpeg');
+insert into images values(images_sequence.nextval, 'AC001','AC001_02.jpeg');
+insert into images values(images_sequence.nextval, 'AC001','AC001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'AC002','AC002_01.jpeg');
+insert into images values(images_sequence.nextval, 'AC002','AC002_02.jpeg');
+insert into images values(images_sequence.nextval, 'AC002','AC002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'AC003','AC003_01.jpeg');
+insert into images values(images_sequence.nextval, 'AC003','AC003_02.jpeg');
+insert into images values(images_sequence.nextval, 'AC003','AC003_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'TV001','TV001_01.jpeg');
+insert into images values(images_sequence.nextval, 'TV001','TV001_02.jpeg');
+insert into images values(images_sequence.nextval, 'TV001','TV001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'TV002','TV002_01.jpeg');
+insert into images values(images_sequence.nextval, 'TV002','TV002_02.jpeg');
+insert into images values(images_sequence.nextval, 'TV002','TV002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'TV003','TV003_01.jpeg');
+insert into images values(images_sequence.nextval, 'TV003','TV003_02.jpeg');
+insert into images values(images_sequence.nextval, 'TV003','TV003_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'CA001','CA001_01.jpeg');
+insert into images values(images_sequence.nextval, 'CA001','CA001_02.jpeg');
+insert into images values(images_sequence.nextval, 'CA001','CA001_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'CA002','CA002_01.jpeg');
+insert into images values(images_sequence.nextval, 'CA002','CA002_02.jpeg');
+insert into images values(images_sequence.nextval, 'CA002','CA002_03.jpeg');
+
+insert into images values(images_sequence.nextval, 'CA003','CA003_01.jpeg');
+insert into images values(images_sequence.nextval, 'CA003','CA003_02.jpeg');
+insert into images values(images_sequence.nextval, 'CA003','CA003_03.jpeg');
