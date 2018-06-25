@@ -10846,7 +10846,7 @@
 											"font": "Arial;13;0",
 											"left": -304,
 											"top": -64,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -10948,7 +10948,7 @@
 											"font": "Arial;13;0",
 											"left": -272,
 											"top": -64,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -11144,7 +11144,7 @@
 											"font": "Arial;13;0",
 											"left": -256,
 											"top": -48,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -11451,7 +11451,7 @@
 											"font": "Arial;13;0",
 											"left": -560,
 											"top": 32,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -11743,7 +11743,7 @@
 											"font": "Arial;13;0",
 											"left": -672,
 											"top": 64,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -11939,7 +11939,7 @@
 											"font": "Arial;13;0",
 											"left": -256,
 											"top": -64,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -12277,7 +12277,7 @@
 											"font": "Arial;13;0",
 											"left": -288,
 											"top": -288,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -12379,7 +12379,7 @@
 											"font": "Arial;13;0",
 											"left": -272,
 											"top": -272,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -12481,7 +12481,7 @@
 											"font": "Arial;13;0",
 											"left": -288,
 											"top": -224,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -12583,7 +12583,7 @@
 											"font": "Arial;13;0",
 											"left": -288,
 											"top": -160,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -13155,7 +13155,7 @@
 											"font": "Arial;13;0",
 											"left": -304,
 											"top": 16,
-											"width": 86.6708984375,
+											"width": 88,
 											"height": 13,
 											"text": "(from Activity1)"
 										},
@@ -16217,24 +16217,6 @@
 							"name": "close"
 						}
 					]
-				}
-			]
-		},
-		{
-			"_type": "ERDDataModel",
-			"_id": "AAAAAAFkOZrle5LOz9w=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Data Model1",
-			"ownedElements": [
-				{
-					"_type": "ERDDiagram",
-					"_id": "AAAAAAFkOZrle5LPkbg=",
-					"_parent": {
-						"$ref": "AAAAAAFkOZrle5LOz9w="
-					},
-					"name": "ERDDiagram1"
 				}
 			]
 		}
