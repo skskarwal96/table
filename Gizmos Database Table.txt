@@ -8,8 +8,14 @@ city VARCHAR2(30) NOT NULL,
 zipno NUMBER NOT NULL,
 state VARCHAR2(20) NOT NULL,
 mbl NUMBER UNIQUE,
-eml VARCHAR2(20) UNIQUE,
+eml VARCHAR2(40) UNIQUE,
 dateins DATE NOT NULL);
+
+CREATE SEQUENCE UserIdSeq
+START WITH 1
+INCREMENT BY 1
+MINVALUE 0
+MAXVALUE 9999999999999;
 
 insert into customer values('u1', 'abcd', 'shruti', 'gupta',' house no-25', 'dehradun', 248007, 'uttrakhand', 9747983489, 'shruti@gmail.com', '12-May-2018');
 insert into customer values('u2', 'abcd', 'Rishabh', 'Malhotra',' house no-24', 'delhi', 110024, 'Delhi', 9745983489, 'rishabh@gmail.com', '13-May-2018');
@@ -34,12 +40,6 @@ insert into category values('RG','Refrigerator');
 insert into category values('AC','Air Conditioner');
 insert into category values('TV','Television');
 insert into category values('CA','Camera');
-
-CREATE SEQUENCE UserIdSeq
-START WITH 1
-INCREMENT BY 1
-MINVALUE 0
-MAXVALUE 9999999999999;
 
 #############################################################################################
 
@@ -99,135 +99,135 @@ update products set pic_name='CA003.jpeg' where prodid='CA003';
 
 ############################################################################################################################
 
-create table Specifications(catid varchar2(10) references category(catid), prodid varchar2(10) references products(prodid), specs varchar2(20) NOT NULL, value varchar2(20) NOT NULL, unit varchar2(10) NOT NULL);
+create table Specifications(sid number primary key, catid varchar2(10) references category(catid), prodid varchar2(10) references products(prodid), specs varchar2(20) NOT NULL, value varchar2(20) NOT NULL, unit varchar2(10) NOT NULL);
 
-insert into Specifications values('MB', 'MB001', 'Dimensions', '5', 'inches');
-insert into Specifications values('MB', 'MB001', 'RAM', '2', 'GB');
-insert into Specifications values('MB', 'MB001', 'Processor', 'Qualcomm Snapdragon', 'GHz');
-insert into Specifications values('MB', 'MB001', 'Storage', '64', 'GB');
-insert into Specifications values('MB', 'MB001', 'Color', 'Golden', 'Color');
-insert into Specifications values('MB', 'MB001', 'Model', 'Redmi', 'Mi 5');
+insert into Specifications values(1,'MB', 'MB001', 'Dimensions', '5', 'inches');
+insert into Specifications values(2,'MB', 'MB001', 'RAM', '2', 'GB');
+insert into Specifications values(3,'MB', 'MB001', 'Processor', 'Qualcomm Snapdragon', 'GHz');
+insert into Specifications values(4,'MB', 'MB001', 'Storage', '64', 'GB');
+insert into Specifications values(5,'MB', 'MB001', 'Color', 'Golden', 'Color');
+insert into Specifications values(6,'MB', 'MB001', 'Model', 'Redmi', 'Mi 5');
 
-insert into Specifications values('MB', 'MB002', 'Dimensions', '6', 'inches');
-insert into Specifications values('MB', 'MB002', 'RAM', '4', 'GB');
-insert into Specifications values('MB', 'MB002', 'Processor', 'Qualcomm Snapdragon', 'GHz');
-insert into Specifications values('MB', 'MB002', 'Storage', '64', 'GB');
-insert into Specifications values('MB', 'MB002', 'Color', 'Black', 'Color');
-insert into Specifications values('MB', 'MB002', 'Model', 'Galaxy', 'S9');
+insert into Specifications values(7,'MB', 'MB002', 'Dimensions', '6', 'inches');
+insert into Specifications values(8,'MB', 'MB002', 'RAM', '4', 'GB');
+insert into Specifications values(9,'MB', 'MB002', 'Processor', 'Qualcomm Snapdragon', 'GHz');
+insert into Specifications values(10,'MB', 'MB002', 'Storage', '64', 'GB');
+insert into Specifications values(11,'MB', 'MB002', 'Color', 'Black', 'Color');
+insert into Specifications values(12,'MB', 'MB002', 'Model', 'Galaxy', 'S9');
 
-insert into Specifications values('MB', 'MB003', 'Dimensions', '5', 'inches');
-insert into Specifications values('MB', 'MB003', 'RAM', '3', 'GB');
-insert into Specifications values('MB', 'MB003', 'Processor', 'Octa core', 'GHz');
-insert into Specifications values('MB', 'MB003', 'Storage', '256', 'GB');
-insert into Specifications values('MB', 'MB003', 'Color', 'Golden', 'Color');
-insert into Specifications values('MB', 'MB003', 'Model', 'Note', '8');
+insert into Specifications values(13,'MB', 'MB003', 'Dimensions', '5', 'inches');
+insert into Specifications values(14,'MB', 'MB003', 'RAM', '3', 'GB');
+insert into Specifications values(15,'MB', 'MB003', 'Processor', 'Octa core', 'GHz');
+insert into Specifications values(16,'MB', 'MB003', 'Storage', '256', 'GB');
+insert into Specifications values(17,'MB', 'MB003', 'Color', 'Golden', 'Color');
+insert into Specifications values(18,'MB', 'MB003', 'Model', 'Note', '8');
 _____________________________________________________________________
 
-insert into Specifications values('LP', 'LP001', 'Dimensions', '15.6', 'inches');
-insert into Specifications values('LP', 'LP001', 'RAM', '8', 'GB');
-insert into Specifications values('LP', 'LP001', 'Processor', 'Intel Core i5', 'GHz');
-insert into Specifications values('LP', 'LP001', 'Storage', '1', 'TB');
-insert into Specifications values('LP', 'LP001', 'Color', 'Black', 'Color');
-insert into Specifications values('LP', 'LP001', 'Model', 'HP 15-BS', 'HP');
-insert into Specifications values('LP', 'LP001', 'Graphic Card', '2', 'GB');
-insert into Specifications values('LP', 'LP001', 'Weight', '2.1', 'KG');
+insert into Specifications values(19,'LP', 'LP001', 'Dimensions', '15.6', 'inches');
+insert into Specifications values(20,'LP', 'LP001', 'RAM', '8', 'GB');
+insert into Specifications values(21,'LP', 'LP001', 'Processor', 'Intel Core i5', 'GHz');
+insert into Specifications values(22,'LP', 'LP001', 'Storage', '1', 'TB');
+insert into Specifications values(23,'LP', 'LP001', 'Color', 'Black', 'Color');
+insert into Specifications values(24,'LP', 'LP001', 'Model', 'HP 15-BS', 'HP');
+insert into Specifications values(25,'LP', 'LP001', 'Graphic Card', '2', 'GB');
+insert into Specifications values(26,'LP', 'LP001', 'Weight', '2.1', 'KG');
 
-insert into Specifications values('LP', 'LP002', 'Dimensions', '14', 'inches');
-insert into Specifications values('LP', 'LP002', 'RAM', '8', 'GB');
-insert into Specifications values('LP', 'LP002', 'Processor', 'Intel Core i7', 'GHz');
-insert into Specifications values('LP', 'LP002', 'Storage', '1', 'TB');
-insert into Specifications values('LP', 'LP002', 'Color', 'Grey', 'Color');
-insert into Specifications values('LP', 'LP002', 'Model', 'Lenovo 15-BS', 'Lenovo');
-insert into Specifications values('LP', 'LP002', 'Graphic Card', '3', 'GB');
-insert into Specifications values('LP', 'LP002', 'Weight', '2.5', 'KG');
+insert into Specifications values(27,'LP', 'LP002', 'Dimensions', '14', 'inches');
+insert into Specifications values(28,'LP', 'LP002', 'RAM', '8', 'GB');
+insert into Specifications values(29,'LP', 'LP002', 'Processor', 'Intel Core i7', 'GHz');
+insert into Specifications values(30,'LP', 'LP002', 'Storage', '1', 'TB');
+insert into Specifications values(31,'LP', 'LP002', 'Color', 'Grey', 'Color');
+insert into Specifications values(32,'LP', 'LP002', 'Model', 'Lenovo 15-BS', 'Lenovo');
+insert into Specifications values(33,'LP', 'LP002', 'Graphic Card', '3', 'GB');
+insert into Specifications values(34,'LP', 'LP002', 'Weight', '2.5', 'KG');
 
-insert into Specifications values('LP', 'LP003', 'Dimensions', '12', 'inches');
-insert into Specifications values('LP', 'LP003', 'RAM', '8', 'GB');
-insert into Specifications values('LP', 'LP003', 'Processor', 'Intel Core i7', 'GHz');
-insert into Specifications values('LP', 'LP003', 'Storage', '1', 'TB');
-insert into Specifications values('LP', 'LP003', 'Color', 'Grey', 'Color');
-insert into Specifications values('LP', 'LP003', 'Model', 'Samsung 15-BS', 'Lenovo');
-insert into Specifications values('LP', 'LP003', 'Graphic Card', '4', 'GB');
-insert into Specifications values('LP', 'LP003', 'Weight', '2', 'KG');
+insert into Specifications values(35,'LP', 'LP003', 'Dimensions', '12', 'inches');
+insert into Specifications values(36,'LP', 'LP003', 'RAM', '8', 'GB');
+insert into Specifications values(37,'LP', 'LP003', 'Processor', 'Intel Core i7', 'GHz');
+insert into Specifications values(38,'LP', 'LP003', 'Storage', '1', 'TB');
+insert into Specifications values(39,'LP', 'LP003', 'Color', 'Grey', 'Color');
+insert into Specifications values(40,'LP', 'LP003', 'Model', 'Samsung 15-BS', 'Lenovo');
+insert into Specifications values(41,'LP', 'LP003', 'Graphic Card', '4', 'GB');
+insert into Specifications values(42,'LP', 'LP003', 'Weight', '2', 'KG');
 _____________________________________________________________________
 
-insert into Specifications values('RG', 'RG001', 'Dimensions', '20*20*60', 'inches');
-insert into Specifications values('RG', 'RG001', 'Volume', '195', 'Litre');
-insert into Specifications values('RG', 'RG001', 'Door', 'Single', 'Door');
-insert into Specifications values('RG', 'RG001', 'Color', 'Grey', 'Color');
-insert into Specifications values('RG', 'RG001', 'Model', 'HR-177BS', 'Haier');
+insert into Specifications values(43,'RG', 'RG001', 'Dimensions', '20*20*60', 'inches');
+insert into Specifications values(44,'RG', 'RG001', 'Volume', '195', 'Litre');
+insert into Specifications values(45,'RG', 'RG001', 'Door', 'Single', 'Door');
+insert into Specifications values(46,'RG', 'RG001', 'Color', 'Grey', 'Color');
+insert into Specifications values(47,'RG', 'RG001', 'Model', 'HR-177BS', 'Haier');
 
-insert into Specifications values('RG', 'RG002', 'Dimensions', '20*20*80', 'inches');
-insert into Specifications values('RG', 'RG002', 'Volume', '250', 'Litre');
-insert into Specifications values('RG', 'RG002', 'Door', 'Double', 'Door');
-insert into Specifications values('RG', 'RG002', 'Color', 'Blue', 'Color');
-insert into Specifications values('RG', 'RG002', 'Model', 'GD-167BS', 'Godrej');
+insert into Specifications values(48,'RG', 'RG002', 'Dimensions', '20*20*80', 'inches');
+insert into Specifications values(49,'RG', 'RG002', 'Volume', '250', 'Litre');
+insert into Specifications values(50,'RG', 'RG002', 'Door', 'Double', 'Door');
+insert into Specifications values(51,'RG', 'RG002', 'Color', 'Blue', 'Color');
+insert into Specifications values(52,'RG', 'RG002', 'Model', 'GD-167BS', 'Godrej');
 
-insert into Specifications values('RG', 'RG003', 'Dimensions', '20*20*100', 'inches');
-insert into Specifications values('RG', 'RG003', 'Volume', '300', 'Litre');
-insert into Specifications values('RG', 'RG003', 'Door', 'Double', 'Door');
-insert into Specifications values('RG', 'RG003', 'Color', 'Silver', 'Color');
-insert into Specifications values('RG', 'RG003', 'Model', 'LG-137BS', 'LG');
+insert into Specifications values(53,'RG', 'RG003', 'Dimensions', '20*20*100', 'inches');
+insert into Specifications values(54,'RG', 'RG003', 'Volume', '300', 'Litre');
+insert into Specifications values(55,'RG', 'RG003', 'Door', 'Double', 'Door');
+insert into Specifications values(56,'RG', 'RG003', 'Color', 'Silver', 'Color');
+insert into Specifications values(57,'RG', 'RG003', 'Model', 'LG-137BS', 'LG');
 _____________________________________________________________________
 
-insert into Specifications values('AC', 'AC001', 'Energy Efficiency', '5', 'Star');
-insert into Specifications values('AC', 'AC001', 'Capacity', '1', 'Tons');
-insert into Specifications values('AC', 'AC001', 'Type', 'Split', 'Type');
-insert into Specifications values('AC', 'AC001', 'Color', 'White', 'Color');
-insert into Specifications values('AC', 'AC001', 'Model', 'OG-1567A', 'O-General');
+insert into Specifications values(58,'AC', 'AC001', 'Energy Efficiency', '5', 'Star');
+insert into Specifications values(59,'AC', 'AC001', 'Capacity', '1', 'Tons');
+insert into Specifications values(60,'AC', 'AC001', 'Type', 'Split', 'Type');
+insert into Specifications values(61,'AC', 'AC001', 'Color', 'White', 'Color');
+insert into Specifications values(62,'AC', 'AC001', 'Model', 'OG-1567A', 'O-General');
 
-insert into Specifications values('AC', 'AC002', 'Energy Efficiency', '3', 'Star');
-insert into Specifications values('AC', 'AC002', 'Capacity', '1', 'Tons');
-insert into Specifications values('AC', 'AC002', 'Type', 'Window', 'Type');
-insert into Specifications values('AC', 'AC002', 'Color', 'White', 'Color');
-insert into Specifications values('AC', 'AC002', 'Model', 'VL-1567A', 'Voltas');
+insert into Specifications values(63,'AC', 'AC002', 'Energy Efficiency', '3', 'Star');
+insert into Specifications values(64,'AC', 'AC002', 'Capacity', '1', 'Tons');
+insert into Specifications values(65,'AC', 'AC002', 'Type', 'Window', 'Type');
+insert into Specifications values(66,'AC', 'AC002', 'Color', 'White', 'Color');
+insert into Specifications values(67,'AC', 'AC002', 'Model', 'VL-1567A', 'Voltas');
 
-insert into Specifications values('AC', 'AC003', 'Energy Efficiency', '4', 'Star');
-insert into Specifications values('AC', 'AC003', 'Capacity', '1.5', 'Tons');
-insert into Specifications values('AC', 'AC003', 'Type', 'Split', 'Type');
-insert into Specifications values('AC', 'AC003', 'Color', 'White', 'Color');
-insert into Specifications values('AC', 'AC003', 'Model', 'LG-1567A', 'LG');
+insert into Specifications values(68,'AC', 'AC003', 'Energy Efficiency', '4', 'Star');
+insert into Specifications values(69,'AC', 'AC003', 'Capacity', '1.5', 'Tons');
+insert into Specifications values(70,'AC', 'AC003', 'Type', 'Split', 'Type');
+insert into Specifications values(71,'AC', 'AC003', 'Color', 'White', 'Color');
+insert into Specifications values(72,'AC', 'AC003', 'Model', 'LG-1567A', 'LG');
 _____________________________________________________________________
 
-insert into Specifications values('TV', 'TV001', 'Dimensions', '40', 'inches');
-insert into Specifications values('TV', 'TV001', 'Display-Technology', 'LED', 'Type');
-insert into Specifications values('TV', 'TV001', 'Resolution', '1080p', 'Full HD');
-insert into Specifications values('TV', 'TV001', 'Color', 'Black', 'Color');
-insert into Specifications values('TV', 'TV001', 'Model', 'SN-1567A', 'SONY');
+insert into Specifications values(73,'TV', 'TV001', 'Dimensions', '40', 'inches');
+insert into Specifications values(74,'TV', 'TV001', 'Display-Technology', 'LED', 'Type');
+insert into Specifications values(75,'TV', 'TV001', 'Resolution', '1080p', 'Full HD');
+insert into Specifications values(76,'TV', 'TV001', 'Color', 'Black', 'Color');
+insert into Specifications values(77,'TV', 'TV001', 'Model', 'SN-1567A', 'SONY');
 
-insert into Specifications values('TV', 'TV002', 'Dimensions', '36', 'inches');
-insert into Specifications values('TV', 'TV002', 'Display-Technology', 'OLED', 'Type');
-insert into Specifications values('TV', 'TV002', 'Resolution', '1080p', 'Full HD');
-insert into Specifications values('TV', 'TV002', 'Color', 'Black', 'Color');
-insert into Specifications values('TV', 'TV002', 'Model', 'LG-1567A', 'LG');
+insert into Specifications values(78,'TV', 'TV002', 'Dimensions', '36', 'inches');
+insert into Specifications values(79,'TV', 'TV002', 'Display-Technology', 'OLED', 'Type');
+insert into Specifications values(80,'TV', 'TV002', 'Resolution', '1080p', 'Full HD');
+insert into Specifications values(81,'TV', 'TV002', 'Color', 'Black', 'Color');
+insert into Specifications values(82,'TV', 'TV002', 'Model', 'LG-1567A', 'LG');
 
-insert into Specifications values('TV', 'TV003', 'Dimensions', '32', 'inches');
-insert into Specifications values('TV', 'TV003', 'Display-Technology', 'LED', 'Type');
-insert into Specifications values('TV', 'TV003', 'Resolution', '720p', 'Full HD');
-insert into Specifications values('TV', 'TV003', 'Color', 'Black', 'Color');
-insert into Specifications values('TV', 'TV003', 'Model', 'SM-1567A', 'Samsung');
+insert into Specifications values(83,'TV', 'TV003', 'Dimensions', '32', 'inches');
+insert into Specifications values(84,'TV', 'TV003', 'Display-Technology', 'LED', 'Type');
+insert into Specifications values(85,'TV', 'TV003', 'Resolution', '720p', 'Full HD');
+insert into Specifications values(86,'TV', 'TV003', 'Color', 'Black', 'Color');
+insert into Specifications values(87,'TV', 'TV003', 'Model', 'SM-1567A', 'Samsung');
 _____________________________________________________________________
 
-insert into Specifications values('CA', 'CA001', 'Dimensions', '7.66*14.2*11.6', 'cms');
-insert into Specifications values('CA', 'CA001', 'Optical Zoom', '2', 'x');
-insert into Specifications values('CA', 'CA001', 'Shutter Speed', '30', 'secs');
-insert into Specifications values('CA', 'CA001', 'Display Size', '3.4', 'inches');
-insert into Specifications values('CA', 'CA001', 'Weight', '1', 'Kg');
-insert into Specifications values('CA', 'CA001', 'Model', 'EOS MarkIV', 'Canon');
+insert into Specifications values(88,'CA', 'CA001', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values(89,'CA', 'CA001', 'Optical Zoom', '2', 'x');
+insert into Specifications values(90,'CA', 'CA001', 'Shutter Speed', '30', 'secs');
+insert into Specifications values(91,'CA', 'CA001', 'Display Size', '3.4', 'inches');
+insert into Specifications values(92,'CA', 'CA001', 'Weight', '1', 'Kg');
+insert into Specifications values(93,'CA', 'CA001', 'Model', 'EOS MarkIV', 'Canon');
 
-insert into Specifications values('CA', 'CA002', 'Dimensions', '7.66*14.2*11.6', 'cms');
-insert into Specifications values('CA', 'CA002', 'Optical Zoom', '3', 'x');
-insert into Specifications values('CA', 'CA002', 'Shutter Speed', '30', 'secs');
-insert into Specifications values('CA', 'CA002', 'Display Size', '3.6', 'inches');
-insert into Specifications values('CA', 'CA002', 'Weight', '1.2', 'Kg');
-insert into Specifications values('CA', 'CA002', 'Model', 'EOS MarkV', 'Canon');
+insert into Specifications values(94,'CA', 'CA002', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values(95,'CA', 'CA002', 'Optical Zoom', '3', 'x');
+insert into Specifications values(96,'CA', 'CA002', 'Shutter Speed', '30', 'secs');
+insert into Specifications values(97,'CA', 'CA002', 'Display Size', '3.6', 'inches');
+insert into Specifications values(98,'CA', 'CA002', 'Weight', '1.2', 'Kg');
+insert into Specifications values(99,'CA', 'CA002', 'Model', 'EOS MarkV', 'Canon');
 
-insert into Specifications values('CA', 'CA003', 'Dimensions', '7.66*14.2*11.6', 'cms');
-insert into Specifications values('CA', 'CA003', 'Optical Zoom', '1', 'x');
-insert into Specifications values('CA', 'CA003', 'Shutter Speed', '30', 'secs');
-insert into Specifications values('CA', 'CA003', 'Display Size', '3', 'inches');
-insert into Specifications values('CA', 'CA003', 'Weight', '1.7', 'Kg');
-insert into Specifications values('CA', 'CA003', 'Model', 'EOS MarkIII', 'Canon');
+insert into Specifications values(100,'CA', 'CA003', 'Dimensions', '7.66*14.2*11.6', 'cms');
+insert into Specifications values(101,'CA', 'CA003', 'Optical Zoom', '1', 'x');
+insert into Specifications values(102,'CA', 'CA003', 'Shutter Speed', '30', 'secs');
+insert into Specifications values(103,'CA', 'CA003', 'Display Size', '3', 'inches');
+insert into Specifications values(104,'CA', 'CA003', 'Weight', '1.7', 'Kg');
+insert into Specifications values(105,'CA', 'CA003', 'Model', 'EOS MarkIII', 'Canon');
 
 
 ****************************************************************************************************************************
@@ -240,6 +240,17 @@ INCREMENT BY 1
 MINVALUE 0
 MAXVALUE 9999999999999;
 
+
+
+_______________________________________________
+
+insert into ordertable values('ORDER001','User003','Mahape','Mumbai',110092,'Maharashtra','COD','20-May-2018','RG001','22-May-2018',2,1000);
+
+insert into ordertable values('ORDER002','User003','Mahape','Mumbai',110092,'Maharashtra','COD','20-May-2018','MB002','22-May-2018',2,1000);
+
+insert into ordertable values('ORDER003','User003','Mahape','Mumbai',110092,'Maharashtra','COD','22-May-2018','CA001','24-May-2018',2,1000);
+
+insert into ordertable values('ORDER004','User003','Mahape','Mumbai',110092,'Maharashtra','COD','22-May-2018','RG001','24-May-2018',2,1000);
 ****************************************************************************************************************************
 create table CardDetail(
 cardholdername varchar(30) not null,
